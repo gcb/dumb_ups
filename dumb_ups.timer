@@ -1,0 +1,12 @@
+#/etc/systemd/system/dumb_ups.timer
+[Unit]
+Description=Monitor Link as pseudo-smart-UPS.
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=1min
+#Unit=dumb_ups.service (default by name)
+
+[Install]
+WantedBy=timers.target
+

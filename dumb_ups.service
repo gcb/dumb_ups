@@ -1,0 +1,15 @@
+[Unit]
+Description=Monitor Link as pseudo-smart-UPS.
+#RefuseManualStart=no
+#RefuseManualStop=yes
+#Requisite=network-online.target
+[Service]
+Type=oneshot
+ExecStart=/root/dumb_ups.sh
+#User=nobody must run as root!
+#Group=nobody
+Nice=5
+#Environment="DUMB_UPS_IF_NAME=eth0" default
+Environment="DUMB_UPS_IF_NAME=ethf0"
+#Environment="DUMB_UPS_USE_WIFI=false" default
+#Environment="DUMB_UPS_LOCK_FILE=/var/run/lock/dumb_ups" default
