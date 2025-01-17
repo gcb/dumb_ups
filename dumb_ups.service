@@ -3,6 +3,7 @@ Description=Monitor Link as pseudo-smart-UPS.
 #RefuseManualStart=no
 #RefuseManualStop=yes
 #Requisite=network-online.target
+
 [Service]
 Type=oneshot
 ExecStart=/root/dumb_ups.sh
@@ -13,3 +14,8 @@ Nice=5
 Environment="DUMB_UPS_IF_NAME=ethf0"
 #Environment="DUMB_UPS_USE_WIFI=false" default
 #Environment="DUMB_UPS_LOCK_FILE=/var/run/lock/dumb_ups" default
+
+# Silence start/stop timer/script logs (we only care about
+# script crashing. and if it works, you get a wall shutdown msg)
+SyslogLevel=2
+LogLevelMax=alert
